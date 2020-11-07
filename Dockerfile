@@ -12,8 +12,7 @@ FROM alpine:latest
 ARG UID=6995
 ARG GID=6995
 RUN addgroup --gid $GID microblogpub && \
-  useradd -m -u $UID -g $GID -d /opt/microblogpub microblogpub && \
-  echo "microblogpub:`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 24 | mkpasswd -s -m sha-256`" | chpasswd
+  useradd -m -u $UID -g $GID -d /opt/microblogpub microblogpub
 
 WORKDIR /app
 RUN mkdir -p /app/poussetaches_data
